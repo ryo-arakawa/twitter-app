@@ -7,11 +7,10 @@ import { selectUser } from "../features/userSlice";
 import { Avatar, Button, IconButton } from "@material-ui/core";
 import AddAPhotoIcon from "@material-ui/icons/AddAPhoto";
 
-function TweetInput() {
+const TweetInput: React.FC = () => {
   const user = useSelector(selectUser);
   const [tweetImage, setTweetImage] = useState<File | null>(null);
   const [tweetMsg, setTweetMsg] = useState("");
-
   const onChangeImageHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files![0]) {
       setTweetImage(e.target.files![0]);
@@ -111,6 +110,6 @@ function TweetInput() {
       </form>
     </>
   );
-}
+};
 
 export default TweetInput;
